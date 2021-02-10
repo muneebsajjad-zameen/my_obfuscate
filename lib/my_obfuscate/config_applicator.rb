@@ -76,6 +76,26 @@ class MyObfuscate
             else
               definition[:string].is_a?(Proc) ? definition[:string].call(row_hash) : definition[:string]
             end
+          when :affiliate_contact_data
+            data = {
+              'id' => ,
+              "city" => "Lahore", 
+              "email" => clean_quotes("#{FFaker::Internet.email}.#{md5}.example.com"),
+              "cityId" => 1, 
+              "idType" => "CNIC", 
+              "mobile" =>  random_string(definition[:length] || 12, definition[:chars] || NUMBER_CHARS), 
+              "address" => "house", 
+              "country" => "Pakistan", 
+              "idNumber" => random_string(definition[:length] || 13, definition[:chars] || NUMBER_CHARS), 
+              "lastName" =>  clean_quotes(FFaker::Name.last_name), 
+              "countryId" => 155, 
+              "firstName" =>  clean_quotes(FFaker::Name.first_name), 
+              "profession" => 2, 
+              "designation" => 2, 
+              "accountTypeId" => 2, 
+              "affiliateType" => 2, 
+              "affiliateTypeTitle" => "Individual"
+            }
           when :null
             nil
           when :keep
