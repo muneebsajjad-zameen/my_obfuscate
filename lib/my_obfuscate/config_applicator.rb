@@ -78,7 +78,7 @@ class MyObfuscate
             end
           when :affiliate_contact_data
             data = {
-              'id' => ,
+              'id' => random_string(definition[:length] || 12, definition[:chars] || NUMBER_CHARS),
               "city" => "Lahore", 
               "email" => clean_quotes("#{FFaker::Internet.email}.#{md5}.example.com"),
               "cityId" => 1, 
@@ -94,8 +94,10 @@ class MyObfuscate
               "designation" => 2, 
               "accountTypeId" => 2, 
               "affiliateType" => 2, 
+              "dob" => "1985-09-21",
               "affiliateTypeTitle" => "Individual"
             }
+            data.to_json
           when :null
             nil
           when :keep
